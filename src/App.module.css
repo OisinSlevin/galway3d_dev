@@ -1,0 +1,143 @@
+.canvasContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index:0
+  }
+  
+  .uiContainer {
+    display: flex;
+    flex-direction: column; /* Set the flex direction to column */
+    gap: 10px; /* Add some gap between the controls for spacing */
+    /* ... your other styles ... */
+    z-index: 2; /* Make sure UI elements appear above the canvas */
+    top: 70px; /* Adjust the positioning as needed */
+    left: 10px; /* Adjust the positioning as needed */
+    position: absolute;
+    
+    color: white;
+  }
+  
+  .controlGroup{
+    margin-right: 5px;
+    border-radius: 7px;
+     color: white;
+
+
+  }
+  .searchbar{
+    margin-right: 5px;
+    border-radius: 7px;
+     color: black;
+
+
+  }
+  
+  .legendContainer {
+    display: block;
+    align-items: center;
+    margin-top: 20px;
+    color: white;
+  
+  }
+  
+  .legendContainer label {
+    margin-right: 5px;
+
+  }
+
+
+
+  .SidebarBackground {
+    position: absolute;
+    top: 0x;
+    left: 0px;
+    width: 300px; /* Adjust the width for the sidebar */
+    height: 100%;
+    border-radius: 20px;
+    background-color: rgba(58, 57, 57, 0.532); /* Adjust the opacity as needed */
+    z-index: 1;
+  }
+
+  .MapBackground {
+    position: absolute;
+    top: 0x;
+    left: 0px;
+    width: 100%; /* Adjust the width for the sidebar */
+    height: 100%;
+    background-color: rgb(171, 222, 226); /* Adjust the opacity as needed */
+    z-index: -1;
+  }
+
+  .toggleBackgroundContainer {
+    display: block;
+    align-items: center;
+    margin-top: 0px;
+    color: white;
+    z-index: 1;
+  
+  }
+  
+  .toggleBackground {
+    top: 10px; /* Adjust the positioning as needed */
+    left: 10px; /* Adjust the positioning as needed */
+    position: absolute;
+    align-items: center;
+    color: white;
+    z-index: 2; /* Make sure UI elements appear above the canvas */
+   
+  }
+  .toggleBackground label {
+    margin-right: 5px;
+    z-index: 2;
+
+  }
+
+
+  .toggleBackground {
+    z-index: 2;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #221ef4d0;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 5px;
+    width: 270px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .toggleBackground span {
+   
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .toggleBackground span:after {
+   
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .toggleBackground:hover span {
+ 
+    padding-right: 25px;
+  }
+  
+  .toggleBackground:hover span:after {
+   
+    opacity: 1;
+    right: 0;
+  }
+
