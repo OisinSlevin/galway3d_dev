@@ -1,5 +1,5 @@
 import React, {useRef,useState,Suspense}  from "react";
-import { Canvas} from "@react-three/fiber";
+import {useThree, Canvas} from "@react-three/fiber";
 import {  MapControls, Html} from "@react-three/drei";
 
 import {Model} from "./Scene.jsx";
@@ -26,7 +26,11 @@ const App = () => {
  
   // Function to add hover props to the child meshes of the Model component
   const cameraRef = useRef();
-  const [chunknumber, set_chunks] = useState(9); // State for background color
+
+  const temp_chunknumber = window.innerWidth< 1080 ? 4 : 9;
+
+  const [chunknumber, set_chunks] = useState(temp_chunknumber); 
+ 
   const [SearchVal, setSearchVal] = useState(""); // State for background color
   const [searchResults, setSearchResults] = useState([{name:null}]); // State to store search results
   const [selectedPosition, setSelectedPosition] = useState(null);

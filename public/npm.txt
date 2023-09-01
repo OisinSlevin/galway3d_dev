@@ -434,3 +434,647 @@ src/sub_components/osm.jsx
   Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
 webpack compiled with 2 warnings
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.jsx
+  Line 29:8:    'viewport' is not defined                                                                                                    no-undef
+  Line 30:37:   React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  Line 33:39:   React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  Line 56:9:    'set_chunks' is not defined                                                                                                  no-undef
+  Line 59:9:    'set_chunks' is not defined                                                                                                  no-undef
+  Line 62:9:    'set_chunks' is not defined                                                                                                  no-undef
+  Line 65:11:   'set_chunks' is not defined                                                                                                  no-undef
+  Line 68:9:    'set_chunks' is not defined                                                                                                  no-undef
+  Line 152:26:  'chunknumber' is not defined                                                                                                 no-undef
+  Line 152:56:  'chunknumber' is not defined                                                                                                 no-undef
+  Line 152:85:  'chunknumber' is not defined                                                                                                 no-undef
+  Line 233:66:  'chunknumber' is not defined                                                                                                 no-undef
+  Line 235:67:  'chunknumber' is not defined                                                                                                 no-undef
+  Line 240:75:  'chunknumber' is not defined                                                                                                 no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in ./node_modules/@mediapipe/tasks-vision/vision_bundle.mjs
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+WARNING in [eslint] 
+src/App.jsx
+  Line 30:10:  'chunknumber' is assigned a value but never used       no-unused-vars
+  Line 30:23:  'set_chunks' is assigned a value but never used        no-unused-vars
+  Line 33:12:  'chunknumber' is assigned a value but never used       no-unused-vars
+  Line 33:25:  'set_chunks' is assigned a value but never used        no-unused-vars
+  Line 37:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+ERROR in [eslint] 
+src/App.jsx
+  Line 29:8:    'viewport' is not defined                                                                                                    no-undef
+  Line 30:37:   React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  Line 33:39:   React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  Line 56:9:    'set_chunks' is not defined                                                                                                  no-undef
+  Line 59:9:    'set_chunks' is not defined                                                                                                  no-undef
+  Line 62:9:    'set_chunks' is not defined                                                                                                  no-undef
+  Line 65:11:   'set_chunks' is not defined                                                                                                  no-undef
+  Line 68:9:    'set_chunks' is not defined                                                                                                  no-undef
+  Line 152:26:  'chunknumber' is not defined                                                                                                 no-undef
+  Line 152:56:  'chunknumber' is not defined                                                                                                 no-undef
+  Line 152:85:  'chunknumber' is not defined                                                                                                 no-undef
+  Line 233:66:  'chunknumber' is not defined                                                                                                 no-undef
+  Line 235:67:  'chunknumber' is not defined                                                                                                 no-undef
+  Line 240:75:  'chunknumber' is not defined                                                                                                 no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 2 warnings
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.jsx
+  Line 30:8:   'viewport' is not defined                                                                                                    no-undef
+  Line 31:37:  React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  Line 34:39:  React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in ./node_modules/@mediapipe/tasks-vision/vision_bundle.mjs
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+WARNING in [eslint] 
+src/App.jsx
+  Line 31:10:  'chunknumber' is assigned a value but never used       no-unused-vars
+  Line 31:23:  'set_chunks' is assigned a value but never used        no-unused-vars
+  Line 34:12:  'chunknumber' is assigned a value but never used       no-unused-vars
+  Line 34:25:  'set_chunks' is assigned a value but never used        no-unused-vars
+  Line 38:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+ERROR in [eslint] 
+src/App.jsx
+  Line 30:8:   'viewport' is not defined                                                                                                    no-undef
+  Line 31:37:  React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  Line 34:39:  React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 2 warnings
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.jsx
+  Line 30:8:   'viewport' is not defined                                                                                                    no-undef
+  Line 31:37:  React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  Line 34:39:  React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+WARNING in ./node_modules/@mediapipe/tasks-vision/vision_bundle.mjs
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+WARNING in [eslint] 
+src/App.jsx
+  Line 31:10:  'chunknumber' is assigned a value but never used       no-unused-vars
+  Line 31:23:  'set_chunks' is assigned a value but never used        no-unused-vars
+  Line 34:12:  'chunknumber' is assigned a value but never used       no-unused-vars
+  Line 34:25:  'set_chunks' is assigned a value but never used        no-unused-vars
+  Line 38:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+ERROR in [eslint] 
+src/App.jsx
+  Line 30:8:   'viewport' is not defined                                                                                                    no-undef
+  Line 31:37:  React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  Line 34:39:  React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 2 warnings
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.jsx
+  Line 29:24:  'useThree' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in ./node_modules/@mediapipe/tasks-vision/vision_bundle.mjs
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+WARNING in [eslint] 
+src/App.jsx
+  Line 36:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+ERROR in [eslint] 
+src/App.jsx
+  Line 29:24:  'useThree' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 2 warnings
+Compiling...
+Compiled with warnings.
+
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+[eslint] 
+src/App.jsx
+  Line 36:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in ./node_modules/@mediapipe/tasks-vision/vision_bundle.mjs
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+WARNING in [eslint] 
+src/App.jsx
+  Line 36:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 2 warnings
+Compiling...
+Compiled with warnings.
+
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+[eslint] 
+src/App.jsx
+  Line 36:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in ./node_modules/@mediapipe/tasks-vision/vision_bundle.mjs
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+WARNING in [eslint] 
+src/App.jsx
+  Line 36:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 2 warnings
+Compiling...
+Compiled with warnings.
+
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+[eslint] 
+src/App.jsx
+  Line 36:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in ./node_modules/@mediapipe/tasks-vision/vision_bundle.mjs
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+WARNING in [eslint] 
+src/App.jsx
+  Line 36:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 2 warnings
+Compiling...
+Compiled with warnings.
+
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+[eslint] 
+src/App.jsx
+  Line 2:9:    'useThree' is defined but never used                   no-unused-vars
+  Line 36:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in ./node_modules/@mediapipe/tasks-vision/vision_bundle.mjs
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):
+Failed to parse source map from '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map' file: Error: ENOENT: no such file or directory, open '/Users/oisinslevin/javascript/galway-3d/node_modules/@mediapipe/tasks-vision/vision_bundle_mjs.js.map'
+
+WARNING in [eslint] 
+src/App.jsx
+  Line 2:9:    'useThree' is defined but never used                   no-unused-vars
+  Line 36:10:  'selectedPosition' is assigned a value but never used  no-unused-vars
+
+src/Scene.jsx
+  Line 140:91:  React Hook useMemo has a missing dependency: 'nodes'. Either include it or remove the dependency array                                                                                                                                                     react-hooks/exhaustive-deps
+  Line 157:6:   React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                                                                                                                                    react-hooks/exhaustive-deps
+  Line 198:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', 'nodes', and 'sorted_chunks'. Either include them or remove the dependency array                                                                                    react-hooks/exhaustive-deps
+  Line 212:6:   React Hook useMemo has an unnecessary dependency: 'hoveredStates'. Either exclude it or remove the dependency array                                                                                                                                        react-hooks/exhaustive-deps
+  Line 240:5:   React Hook useEffect has missing dependencies: 'nodes' and 'onSearchResult'. Either include them or remove the dependency array. If 'onSearchResult' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 253:5:   React Hook useEffect has a missing dependency: 'camera'. Either include it or remove the dependency array                                                                                                                                                  react-hooks/exhaustive-deps
+  Line 305:3:   React Hook React.useCallback has missing dependencies: 'camera', 'clickedStates', and 'nodes'. Either include them or remove the dependency array                                                                                                          react-hooks/exhaustive-deps
+
+src/sub_components/LANDUSE.jsx
+  Line 56:12:   'hoveredStates' is assigned a value but never used                                                                                                           no-unused-vars
+  Line 56:27:   'setHoveredStates' is assigned a value but never used                                                                                                        no-unused-vars
+  Line 94:5:    React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                                     react-hooks/exhaustive-deps
+  Line 283:35:  Unexpected string concatenation of literals                                                                                                                  no-useless-concat
+  Line 320:6:   React Hook useMemo has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                                  react-hooks/exhaustive-deps
+  Line 380:5:   React Hook useEffect has missing dependencies: 'boundingBoxes', 'boundingBoxeschunks', and 'objectHash'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus.jsx
+  Line 2:10:   'useRef' is defined but never used                                                                                        no-unused-vars
+  Line 46:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 154:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/bus_nta.jsx
+  Line 66:10:  'clickPosition' is assigned a value but never used                                                                        no-unused-vars
+  Line 172:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/sub_components/osm.jsx
+  Line 1:45:   'startTransition' is defined but never used                                                                                                   no-unused-vars
+  Line 65:10:  'hoveredStates' is assigned a value but never used                                                                                            no-unused-vars
+  Line 65:25:  'setHoveredStates' is assigned a value but never used                                                                                         no-unused-vars
+  Line 103:5:  React Hook React.useCallback has a missing dependency: 'clickedStates'. Either include it or remove the dependency array                      react-hooks/exhaustive-deps
+  Line 256:6:  React Hook useEffect has a missing dependency: 'objectHash'. Either include it or remove the dependency array                                 react-hooks/exhaustive-deps
+  Line 297:6:  React Hook useMemo has a missing dependency: 'chunks'. Either include it or remove the dependency array                                       react-hooks/exhaustive-deps
+  Line 340:5:  React Hook useEffect has missing dependencies: 'boundingBoxes' and 'boundingBoxeschunks'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 2 warnings
