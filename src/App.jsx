@@ -216,22 +216,24 @@ const App = () => {
           </div>
         )}
         
-          <Canvas dpr={[1, 2]} camera={{ frameloop:"demand", fov: 80,near: 10, far:  10000,position: [0, 500, 0]  }}
+          <Canvas dpr={[1, 2]} camera={{ frameloop:"demand", fov: 80,near: 1, far:  10000,position: [0, 500, 0]  }}
               style={{ position: 'absolute', top: 0, left: 0 }} // Set canvas to position absolute
               gl={{ antialias: true }}
+        
           >   
           <Suspense fallback={<Loader />}>
             <directionalLight intensity={1} decay={2} color="#ffffff" position={[-5,5,10]} rotation={[-2.5, 0, 0]} />
             <ambientLight />
             <MapControls minPolarAngle={0} maxPolarAngle={1} maxDistance={5000}  minDistance={1} />
-
-            { showDef &&<Model cameraRef={cameraRef} chunknumber={chunknumber} searchval={SearchVal} onSearchResult={handleSearchResult} cameraSearchPos={cameraSearchPos}/>}
             { showOSM && <OSM cameraRef={cameraRef} chunknumber={chunknumber} searchval={SearchVal} onSearchResult={handleSearchResult} cameraSearchPos={cameraSearchPos}/>}
-            {showSparch && <Sparch />}
+           
+            { showDef &&<Model cameraRef={cameraRef} chunknumber={chunknumber} searchval={SearchVal} onSearchResult={handleSearchResult} cameraSearchPos={cameraSearchPos}/>}
+             {showSparch && <Sparch />}
             { showBus && <Bus/>}
             { showBusNTA && <BusNTA/>}
-            { showED && <ED/>}
+           
             { showLANDUSE && <LANDUSE cameraRef={cameraRef}  chunknumber={chunknumber} />}
+            { showED && <ED/>}
           </Suspense> 
         </Canvas>
        

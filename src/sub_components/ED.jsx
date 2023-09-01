@@ -155,11 +155,11 @@ export default function ED(props) {
     list_of_objects.map((object, index) => (
       <group key={index} {...props}>
         <mesh geometry={object.geometry}
-          position={[0,30,0]}
+          position={[0,50,0]}
           name={object.name}
           material={
             hoveredStates[index]
-              ? new THREE.MeshStandardMaterial({ color: "red", side: THREE.DoubleSide, transparent:true,  opacity:0.2})
+              ? new THREE.MeshStandardMaterial({ color: "red", side: THREE.FrontSide, transparent:true,  opacity:0.2})
               : object.material
         }
           onClick={(event) =>  handlePointerClick(event,index)}
