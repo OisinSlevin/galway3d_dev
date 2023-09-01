@@ -88,7 +88,7 @@ const materialLookup = {
   // Add more mappings as needed
 };
 
-useGLTF.preload('/big_model_no_walls.glb')
+
   
 export function Model({  chunknumber, searchval,onSearchResult,cameraSearchPos})   {
   // variable setup
@@ -102,7 +102,7 @@ export function Model({  chunknumber, searchval,onSearchResult,cameraSearchPos})
   const [num_chunks, setNumChunks]=useState(chunknumber);
   const { camera } = useThree();
  
-  
+
   // Memoize the bounding boxes for the meshes
   const boundingBoxes = useMemo(() => {
     console.log('bounding box ')
