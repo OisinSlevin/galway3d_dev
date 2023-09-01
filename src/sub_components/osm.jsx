@@ -4,7 +4,7 @@ import { Html } from '@react-three/drei';
 import { useThree,useFrame } from '@react-three/fiber';
 import '../Popup.css'; 
 import  config from './osm_config.json'  ;
-
+import pako from 'pako';
 // distance calculator (x,z no Y)
 function distanceToPoint(pointA, pointB) {
     const dx = pointA[0] - pointB[0];
@@ -106,9 +106,13 @@ export  function OSM( props) {
   useEffect(() => {
     async function fetchJsonData() {
       try {
-        const response = await fetch("/openstreetmap.json"); // Adjust the path if necessary
-        const data = await response.json();
-        setJsonData(data); // No need to parse again
+        const response = await fetch("/openstreetmap.json.gz"); // Adjust the path if necessary
+        const compressedData = await response.arrayBuffer();
+        const decompressedData = pako.inflate(compressedData, { to: 'string' });
+       
+        // Parse the JSON string to get the original JSON object
+        const jsonData = JSON.parse(decompressedData);
+        setJsonData(jsonData);
       } catch (error) {
         console.error("Error fetching JSON data:", error);
       }

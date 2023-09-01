@@ -6,6 +6,7 @@ import { useThree,useFrame } from '@react-three/fiber';
 import '../Popup.css'; 
 import  config from './LANDUSE_config.json'  ;
 import osmconfig from './osm_config.json';
+import pako from 'pako';
 
 // distance calculator (x,z no Y)
 function distanceToPoint(pointA, pointB) {
@@ -96,9 +97,14 @@ export default function LANDUSE(props) {
   useEffect(() => {
     async function fetchJsonData() {
       try {
-        const response = await fetch("/LANDUSE.json"); // Adjust the path if necessary
-        const data = await response.json();
-        setJsonData(JSON.parse(data)); // No need to parse again
+        const response = await fetch("/LANDUSE.json.gz"); // Adjust the path if necessary
+        const compressedData = await response.arrayBuffer();
+        const decompressedData = pako.inflate(compressedData, { to: 'string' });
+
+        // Parse the JSON string to get the original JSON object
+        const jsonData = JSON.parse(decompressedData);
+ 
+        setJsonData(jsonData)
 
         const response2=await fetch("/water_table.json")
         const data2 = await response2.json();
