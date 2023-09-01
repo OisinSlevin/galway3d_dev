@@ -8,6 +8,8 @@ import { MathUtils } from 'three';
 
 
 const Popup = React.memo(({ position, data, onClose }) => {
+ 
+
   return (
     <Html position={position}>
       <div className="popup">
@@ -15,7 +17,20 @@ const Popup = React.memo(({ position, data, onClose }) => {
           <button className="close-button" onClick={onClose}>
             x
           </button>
-          {data}
+          {data ? (
+            <table>
+              <tbody>
+                {Object.keys(data).map((key) => (
+                  <tr key={key}>
+                    <td>{key}</td>
+                    <td>{JSON.stringify(data[key])}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p>No Data available</p>
+          )}
         </div>
         <div className="popup-arrow"></div>
       </div>
@@ -194,7 +209,7 @@ export default function Bus(props) {
         <mesh geometry={nodes.Object_9.geometry} material={materials.chrome} />
    
         {clickedStates[index] && activePopup === index &&  <Popup position={[(busData.x/1000), 2/1000, (busData.y/1000)]} // Pass the position of the clicked mesh to the Popup component
-                data={JSON.stringify(busData, null, 2)}
+                data={busData}
                 onClose={handlePopupClose} />}
         </group>
              
