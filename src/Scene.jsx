@@ -90,7 +90,7 @@ const materialLookup = {
 
 
   
-export function Model({  chunknumber, searchval,onSearchResult,cameraSearchPos})   {
+export function Model({  updateAppState,chunknumber, searchval,onSearchResult,cameraSearchPos})   {
   // variable setup
   const { nodes, materials }  =useGLTF('/big_model_no_walls.glb');
   const [hoveredStates, setHoveredStates] = useState({}); // State to track hovered state for each mesh
@@ -190,6 +190,10 @@ export function Model({  chunknumber, searchval,onSearchResult,cameraSearchPos})
       }
     });
     setSortedChunks(sorted_objects)
+    if (Object.keys(sorted_objects).length>0){
+  
+        updateAppState(false)
+    }
     
     console.log("sorted")
     console.log(sorted_objects)
@@ -224,7 +228,7 @@ export function Model({  chunknumber, searchval,onSearchResult,cameraSearchPos})
   }, []);
 
   useEffect(() =>{
-    console.log("test")
+ 
     
       const search_results=[]
       for (const anode in nodes){
@@ -276,6 +280,7 @@ export function Model({  chunknumber, searchval,onSearchResult,cameraSearchPos})
       }
     }
       setNearestObjects(nearestChunkObjects);
+    
   }
 
 const handlePointerOver = React.useCallback((meshName) => {

@@ -425,6 +425,9 @@ export default function LANDUSE(props) {
     }
  
     setNearestObjects(nearestChunkObjects);
+    if (Object.keys(nearestChunkObjects).length>0){
+        props.updateAppState(false)
+    }
   }
 
 

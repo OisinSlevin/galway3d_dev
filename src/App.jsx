@@ -1,4 +1,4 @@
-import React, {useRef,useState,Suspense}  from "react";
+import React, {useRef,useState,Suspense,useEffect}  from "react";
 import {useThree, Canvas} from "@react-three/fiber";
 import {  MapControls, Html} from "@react-three/drei";
 
@@ -45,10 +45,11 @@ const App = () => {
   const [showOSM, setShowOSM] = useState(true);
   const [showDef, setShowDef] = useState(false);
   const [showBackground, setShowBackground] = useState(true);
-  const [loaded,setLoaded]=useState(true)
+  const [loading,setLoading]=useState(true)
 
   const updateState = (newState) => {
-    setLoaded(newState);
+    setLoading(newState);
+    console.log("set loading false")
   };
 
 
@@ -87,9 +88,15 @@ const App = () => {
     
   };
 
-  const toggleDef = () => {
+  const toggleDef = async () => {
+    if (!showDef) {
+      setLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    }
+   
     setShowDef(!showDef);
   };
+
   const toggleSparch = () => {
     setShowSparch(!showSparch);
   };
@@ -103,15 +110,29 @@ const App = () => {
     setShowED(!showED);
   };
   const toggleLANDUSE = () => {
+    if (!showLANDUSE){
+      setLoading(true)
+      }
     setShowLANDUSE(!showLANDUSE);
+
   };
   const toggleOSM = () => {
+    if (!showOSM){
+      setLoading(true)
+      }
     setShowOSM(!showOSM);
+    
   };
   const toggleBackground = () => {
     setShowBackground(!showBackground);
   };
   
+
+useEffect(() => {
+  // This effect will run whenever showDef changes
+  // We use it to trigger an immediate re-render
+}, [showDef]);
+
   
 
   return (
@@ -233,19 +254,19 @@ const App = () => {
               gl={{ antialias: true }}
         
           >   
-          {loaded && <Loader />}
+          {loading && <Loader />}
             <directionalLight intensity={1} decay={2} color="#ffffff" position={[-5,5,10]} rotation={[-2.5, 0, 0]} />
             <ambientLight />
             <MapControls minPolarAngle={0} maxPolarAngle={1} maxDistance={5000}  minDistance={1} />
            
             { showOSM && <OSM updateAppState={updateState} cameraRef={cameraRef} chunknumber={chunknumber} searchval={SearchVal} onSearchResult={handleSearchResult} cameraSearchPos={cameraSearchPos}/>}
            
-            { showDef &&<Model cameraRef={cameraRef} chunknumber={chunknumber} searchval={SearchVal} onSearchResult={handleSearchResult} cameraSearchPos={cameraSearchPos}/>}
+            { showDef &&<Model updateAppState={updateState}  cameraRef={cameraRef} chunknumber={chunknumber} searchval={SearchVal} onSearchResult={handleSearchResult} cameraSearchPos={cameraSearchPos}/>}
              {showSparch && <Sparch />}
             { showBus && <Bus/>}
             { showBusNTA && <BusNTA/>}
            
-            { showLANDUSE && <LANDUSE cameraRef={cameraRef}  chunknumber={chunknumber} />}
+            { showLANDUSE && <LANDUSE updateAppState={updateState}  cameraRef={cameraRef}  chunknumber={chunknumber} />}
             { showED && <ED/>}
      
         </Canvas>
