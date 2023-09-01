@@ -343,7 +343,7 @@ export  function OSM( props) {
   useFrame(() => { // camera update location
     const cameraPosition = camera.position.clone();
     camera.getWorldDirection(lookAtVector).normalize();
-    const distanceForward=400
+    const distanceForward=200
     // Calculate the intersection point with y=0 plane
     const intersectionPoint = cameraPosition.clone().addScaledVector(lookAtVector, (cameraPosition.y / -lookAtVector.y)+distanceForward);
     const update_pos=intersectionPoint.toArray()
