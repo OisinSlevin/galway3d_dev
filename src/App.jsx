@@ -11,6 +11,7 @@ import BusNTA from "./sub_components/bus_nta.jsx"
 import ED from "./sub_components/ED.jsx"
 import LANDUSE from "./sub_components/LANDUSE.jsx"
 import {OSM} from "./sub_components/osm.jsx"
+
 function Loader() {
   
   return (
@@ -44,6 +45,13 @@ const App = () => {
   const [showOSM, setShowOSM] = useState(true);
   const [showDef, setShowDef] = useState(false);
   const [showBackground, setShowBackground] = useState(true);
+  const [loaded,setLoaded]=useState(true)
+
+  const updateState = (newState) => {
+    setLoaded(newState);
+  };
+
+
 
 
   // Function to update background color
@@ -225,11 +233,12 @@ const App = () => {
               gl={{ antialias: true }}
         
           >   
-          <Suspense fallback={<Loader />}>
+          {loaded && <Loader />}
             <directionalLight intensity={1} decay={2} color="#ffffff" position={[-5,5,10]} rotation={[-2.5, 0, 0]} />
             <ambientLight />
             <MapControls minPolarAngle={0} maxPolarAngle={1} maxDistance={5000}  minDistance={1} />
-            { showOSM && <OSM cameraRef={cameraRef} chunknumber={chunknumber} searchval={SearchVal} onSearchResult={handleSearchResult} cameraSearchPos={cameraSearchPos}/>}
+           
+            { showOSM && <OSM updateAppState={updateState} cameraRef={cameraRef} chunknumber={chunknumber} searchval={SearchVal} onSearchResult={handleSearchResult} cameraSearchPos={cameraSearchPos}/>}
            
             { showDef &&<Model cameraRef={cameraRef} chunknumber={chunknumber} searchval={SearchVal} onSearchResult={handleSearchResult} cameraSearchPos={cameraSearchPos}/>}
              {showSparch && <Sparch />}
@@ -238,7 +247,7 @@ const App = () => {
            
             { showLANDUSE && <LANDUSE cameraRef={cameraRef}  chunknumber={chunknumber} />}
             { showED && <ED/>}
-          </Suspense> 
+     
         </Canvas>
        
         <button className={styles.toggleBackground}

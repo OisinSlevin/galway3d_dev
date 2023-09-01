@@ -332,6 +332,7 @@ export  function OSM( props) {
       }
     });
     setSortedChunks(sorted_objects)
+    
     console.log("sorted")
   
     setCameraPos([100000,1000,1000])
@@ -384,6 +385,9 @@ export  function OSM( props) {
       }
     }
     setNearestObjects(nearestChunkObjects);
+    if (Object.keys(nearestChunkObjects).length>0){
+        props.updateAppState(false)
+    }
   }
 
   return (
