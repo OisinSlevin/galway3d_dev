@@ -367,7 +367,7 @@ export default function LANDUSE(props) {
           };
 
         }
-        sorted_objects[nearestChunk]['nodes'].push(objectHash[nodeName]);
+        sorted_objects[nearestChunk]['nodes'].push(nodeName);
 
       }
     });
@@ -383,7 +383,7 @@ export default function LANDUSE(props) {
     const cameraPosition = camera.position.clone();
     const lookAtVector = new THREE.Vector3();
     camera.getWorldDirection(lookAtVector).normalize();
-    const distanceForward=400
+    const distanceForward=200
     // Calculate the intersection point with y=0 plane
     const intersectionPoint = cameraPosition.clone().addScaledVector(lookAtVector, (cameraPosition.y / -lookAtVector.y)+distanceForward);
     const update_pos=intersectionPoint.toArray()
@@ -420,7 +420,7 @@ export default function LANDUSE(props) {
     for (const item of distancesToCamera) {
       const chunkNodes = sorted_chunks[item.chunkName].nodes;
       for (const itemx of chunkNodes){
-        nearestChunkObjects[itemx.name]=itemx
+        nearestChunkObjects.push(itemx)
       }
     }
  
@@ -432,7 +432,7 @@ export default function LANDUSE(props) {
 
 
   return (
-    Object.keys(nearestObjects).map((nodeName) => (
+    nearestObjects.map((nodeName) => (
        
         <group  >
           <mesh 

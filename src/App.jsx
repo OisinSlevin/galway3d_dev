@@ -1,7 +1,8 @@
 import React, {useRef,useState,Suspense,useEffect}  from "react";
-import {useThree, Canvas} from "@react-three/fiber";
+import {useThree,Canvas, useLoader} from "@react-three/fiber";
+import { Map } from "react-map-gl";
 import {  MapControls, Html} from "@react-three/drei";
-
+import * as THREE from "three"
 import {Model} from "./Scene.jsx";
 import Cube from "./Cube.jsx";
 import styles from './App.module.css';
@@ -10,7 +11,23 @@ import Bus from "./sub_components/bus.jsx"
 import BusNTA from "./sub_components/bus_nta.jsx"
 import ED from "./sub_components/ED.jsx"
 import LANDUSE from "./sub_components/LANDUSE.jsx"
+
 import {OSM} from "./sub_components/osm.jsx"
+import {Stats}  from "@react-three/drei";
+import img from './galway.png'
+
+
+function Image() {
+  const texture = useLoader(THREE.TextureLoader, img)
+  return (
+    <mesh rotation={[-Math.PI / 2,0,-2*Math.PI/360]} scale={[1.055 ,1.055,1.055]} position={[-12,-1,24]}  >
+      <planeGeometry attach="geometry" args={[16383,9984]} />
+      	
+      <meshBasicMaterial attach="material" map={texture} />
+      
+    </mesh>
+  )
+}
 
 function Loader() {
   
@@ -49,7 +66,6 @@ const App = () => {
 
   const updateState = (newState) => {
     setLoading(newState);
-    console.log("set loading false")
   };
 
 
@@ -249,26 +265,32 @@ useEffect(() => {
           </div>
         )}
         
-          <Canvas dpr={[1, 2]} camera={{ frameloop:"demand", fov: 80,near: 1, far:  10000,position: [0, 500, 0]  }}
+          <Canvas dpr={[1, 2]} camera={{ frameloop:"demand", fov: 80,near: 10, far:  10000,position: [0, 500, 0]} }
               style={{ position: 'absolute', top: 0, left: 0 }} // Set canvas to position absolute
-              gl={{ antialias: true }}
-        
+              gl={{ antialias: true,
+                
+              }}
+              
           >   
           {loading && <Loader />}
-            <directionalLight intensity={1} decay={2} color="#ffffff" position={[-5,5,10]} rotation={[-2.5, 0, 0]} />
+            <directionalLight intensity={0.5} decay={2} color="#ffffff" position={[-5,5,10]} rotation={[90, 0, 0]} />
             <ambientLight />
-            <MapControls minPolarAngle={0} maxPolarAngle={1} maxDistance={5000}  minDistance={1} />
+            <MapControls minPolarAngle={0} maxPolarAngle={1} maxDistance={5000}  minDistance={1} /> 
            
             { showOSM && <OSM updateAppState={updateState} cameraRef={cameraRef} chunknumber={chunknumber} searchval={SearchVal} onSearchResult={handleSearchResult} cameraSearchPos={cameraSearchPos}/>}
            
             { showDef &&<Model updateAppState={updateState}  cameraRef={cameraRef} chunknumber={chunknumber} searchval={SearchVal} onSearchResult={handleSearchResult} cameraSearchPos={cameraSearchPos}/>}
              {showSparch && <Sparch />}
             { showBus && <Bus/>}
-            { showBusNTA && <BusNTA/>}
+            { showBusNTA && <BusNTA/>} 
            
             { showLANDUSE && <LANDUSE updateAppState={updateState}  cameraRef={cameraRef}  chunknumber={chunknumber} />}
             { showED && <ED/>}
-     
+            <Stats/>
+            <Image />
+
+              
+            <axesHelper args={[500]}/>
         </Canvas>
        
         <button className={styles.toggleBackground}

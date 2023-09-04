@@ -1032,7 +1032,7 @@
       "roof": "13",
       "height_field": "building:levels",
       "buffer": "",
-      "color":"darkgrey"
+      "color":"#7d7c7c"
     },
     "building_complicated": {
       "object": "building_complicated",
@@ -1047,7 +1047,7 @@
       "roof": "13",
       "height_field": "building:levels",
       "buffer": "",
-      "color":"darkgrey"
+      "color":"#7d7c7c"
     },
     "building_part": {
       "object": "building_part",
@@ -1062,7 +1062,7 @@
       "roof": "13",
       "height_field": "building:levels",
       "buffer": "",
-      "color":"darkgrey"
+      "color":"#7d7c7c"
     },
     "bus_stop": {
       "object": "bus_stop",

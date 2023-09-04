@@ -1,10 +1,11 @@
-import React, { useState, useEffect,useMemo,startTransition } from "react";
+import React, { useState, useEffect,useMemo } from "react";
 import * as THREE from "three";
 import { Html } from '@react-three/drei';
 import { useThree,useFrame } from '@react-three/fiber';
 import '../Popup.css'; 
 import  config from './osm_config.json'  ;
 import pako from 'pako';
+
 // distance calculator (x,z no Y)
 function distanceToPoint(pointA, pointB) {
     const dx = pointA[0] - pointB[0];
@@ -15,10 +16,10 @@ function distanceToPoint(pointA, pointB) {
 
 function filterObjectByStartingString(obj, startingString) {
     console.log('filter str')
-    const filteredObject = {};
+    const filteredObject = [];
     Object.keys(obj).forEach((key) => {
       if (key.startsWith(startingString)) {
-        filteredObject[key] = obj[key];
+        filteredObject.push(key)
       }
     });
     return filteredObject;
@@ -56,13 +57,11 @@ const Popup = React.memo(({ position, data, onClose }) => {
     );
   });
   
-
   
 
 export  function OSM( props) {
   const [jsonData, setJsonData] = useState(null);
   const [objectHash, setHASH] = useState({});
-  const [hoveredStates, setHoveredStates] = useState({}); // State to track hovered state for each mesh
   const [clickedStates, setClickedStates] = useState({}); // State to track hovered state for each mesh
   const [activePopup, setActivePopup] = useState(null); // Track the active popup
   const [clickPosition, setClickPosition] = useState([0, 0, 0]); // State to store click position
@@ -70,7 +69,7 @@ export  function OSM( props) {
   const [sorted_chunks, setSortedChunks]=useState({});
   const [num_chunks, setNumChunks]=useState(props.chunknumber);
   const { camera } = useThree();
-  const [camera_pos,setCameraPos]=useState([100000,0,0])
+  const [camera_pos,setCameraPos]=useState([0,0,0])
   const [userData,setUserData]=useState({})
   const HoveredMaterial=new THREE.MeshStandardMaterial({ color: "red", side: THREE.DoubleSide})
   const lookAtVector = new THREE.Vector3();
@@ -83,22 +82,23 @@ export  function OSM( props) {
 
   const handlePointerClick = React.useCallback((event,index) => {
     event.stopPropagation();
-    console.log(event)
     setClickedStates({})
-    if (clickedStates[index]){
-     
-      setClickedStates((prevState) => ({ ...prevState, [index]: false }));
-      setActivePopup(null);
-    }
-    else{
- 
-      const boundingBox = new THREE.Box3().setFromObject(event.object);
-      const midPosition = new THREE.Vector3();
-      boundingBox.getCenter(midPosition);
+    if (!event.eventObject.name.startsWith("LAND") && !event.eventObject.name.startsWith("WATER")){
+        if (clickedStates[index] ){
+        
+        setClickedStates((prevState) => ({ ...prevState, [index]: false }));
+        setActivePopup(null);
+        }
+        else{
+    
+        const boundingBox = new THREE.Box3().setFromObject(event.object);
+        const midPosition = new THREE.Vector3();
+        boundingBox.getCenter(midPosition);
 
-      setClickPosition(midPosition.toArray());
-      setClickedStates((prevState) => ({ ...prevState, [index]: true }));
-      setActivePopup(index);
+        setClickPosition(midPosition.toArray());
+        setClickedStates((prevState) => ({ ...prevState, [index]: true }));
+        setActivePopup(index);
+        }
     }
   },[]);
 
@@ -199,10 +199,7 @@ export  function OSM( props) {
                             )
                             const holeShape=new THREE.Shape(hole_points)
                             holeShapes.push(holeShape);
-                        }
-
-                        
-                        
+                        }                                      
                     }
                     shape.holes = holeShapes;
                     let height_mult=1
@@ -222,20 +219,11 @@ export  function OSM( props) {
                     geometry.rotateX(Math.PI / 2);
                     geometry.position= [0,Number(config[ob_name]['base']),0]
             
-
-                    
-
-
                     const material = new THREE.MeshStandardMaterial({ color: config[ob_name]['color'] , side: THREE.DoubleSide, transparent:true, opacity:1 });
                     const solidMesh = new THREE.Mesh(geometry, material);
                     const boundingBox = new THREE.Box3().setFromObject(solidMesh);
                     solidMesh.boundingBox = boundingBox;
-                    // Create wireframe
-
-
-                    // Group both solid and wireframe meshes
-                    
-                  
+ 
                     solidMesh.name=ob_name+"_"+overall_count
                     overall_count++
                     object_hash[solidMesh.name]=solidMesh
@@ -247,7 +235,6 @@ export  function OSM( props) {
     }
     
       setHASH(object_hash)
-      console.log(objectHash)
       setJsonData(null)
       setUserData(temp_user_data)
 
@@ -258,11 +245,7 @@ export  function OSM( props) {
   const boundingBoxes = useMemo(() => { // setup a bounding box for each object
     console.log('bounding box ')
     return Object.keys(objectHash).reduce((acc, index) => {
-      
-      
-      const mesh = objectHash[index];
-     
-        
+        const mesh = objectHash[index];
         const boundingBox = mesh.geometry.boundingBox;
         const minPosition = boundingBox.min;
         const maxPosition = boundingBox.max;
@@ -276,13 +259,13 @@ export  function OSM( props) {
   }, [objectHash]);
 
   
-  const chunks= useMemo(() => { return filterObjectByStartingString(objectHash, 'WATER')},[objectHash]) //get water table objects
+  const chunks= useMemo(() => { return filterObjectByStartingString(objectHash, 'WATER')},[boundingBoxes]) //get water table objects
  
   const boundingBoxeschunks = useMemo(() => {
     console.log("bbox_chunks")
-    return Object.keys(chunks).reduce((acc, index) => { // setup bounding boxes for water table objects
+    return chunks.reduce((acc, index) => { // setup bounding boxes for water table objects
 
-      const mesh = chunks[index];
+      const mesh = objectHash[index];
         
         const boundingBox = mesh.geometry.boundingBox;
         const minPosition = boundingBox.min;
@@ -294,7 +277,7 @@ export  function OSM( props) {
       
       return acc;
     }, {});
-  }, [objectHash]);
+  }, [chunks]);
 
   // presort objects to their nearest chunks
   useEffect(() => {
@@ -322,22 +305,19 @@ export  function OSM( props) {
         if (!sorted_objects[nearestChunk]) {
           boundingBoxeschunks[nearestChunk]['nodes']=[]
           sorted_objects[nearestChunk] = {
-           
             midPoint:nearestChunkPos
           };
 
         }
-        boundingBoxeschunks[nearestChunk]['nodes'].push(objectHash[nodeName]);
+        boundingBoxeschunks[nearestChunk]['nodes'].push(nodeName);
 
       }
     });
     setSortedChunks(sorted_objects)
-    
+    if (Object.keys(sorted_objects).length>0){
+        props.updateAppState(false)
+    }   
     console.log("sorted")
-  
-    setCameraPos([100000,1000,1000])
-
-  
   },[objectHash])
 
   useFrame(() => { // camera update location
@@ -348,18 +328,15 @@ export  function OSM( props) {
     const intersectionPoint = cameraPosition.clone().addScaledVector(lookAtVector, (cameraPosition.y / -lookAtVector.y)+distanceForward);
     const update_pos=intersectionPoint.toArray()
    
-    
 
-    if (distanceToPoint(update_pos,camera_pos)>100){
+    if (nearestObjects.length===0 ||distanceToPoint(update_pos,camera_pos)>50   ){
         setNumChunks(props.chunknumber)
         updateNearestObjects(update_pos);     
         setCameraPos(update_pos)
     }
-    
   }, []);
   
   function updateNearestObjects(camera_pos) { // resort nearest chunks to camera
-  
     const distancesToCamera = Object.keys(sorted_chunks)
       .map((chunkName) => {
           const {midPosition}  = boundingBoxeschunks[chunkName];
@@ -375,42 +352,39 @@ export  function OSM( props) {
 
     const nearestChunkObjects = [];
 
-
-
     let chunkNodes=[];
     for (const item of distancesToCamera) {
       chunkNodes = boundingBoxeschunks[item.chunkName].nodes;
       for (const itemx of chunkNodes){
-        nearestChunkObjects[itemx.name]=itemx
+        nearestChunkObjects.push(itemx)
       }
     }
     setNearestObjects(nearestChunkObjects);
-    if (Object.keys(nearestChunkObjects).length>0){
-        props.updateAppState(false)
-    }
+   
   }
 
   return (
 
     <group dispose={null} >
-    {Object.keys(nearestObjects).map((nodeName) => {
-
-      
-        const meshGroup = nearestObjects[nodeName];
+    {nearestObjects.map((nodeName) => {
+        const meshGroup = objectHash[nodeName];
         if (!meshGroup) return null ;
 
         return (
             <mesh 
             key={nodeName}
-            geometry={nearestObjects[nodeName].geometry} 
-            position={nearestObjects[nodeName].geometry.position}
+            name={nodeName}
+            geometry={objectHash[nodeName].geometry} 
+            position={objectHash[nodeName].geometry.position}
+        
             material={
                 clickedStates[nodeName]
                 ? HoveredMaterial
-                : nearestObjects[nodeName].material
+                : objectHash[nodeName].material
                 }
                 onClick={(event) =>  handlePointerClick(event,nodeName)}
             >
+            
             {clickedStates[nodeName] && activePopup === nodeName &&  <Popup position={clickPosition} // Pass the position of the clicked mesh to the Popup component
                 data={userData[nodeName]}
                 onClose={handlePopupClose} />}
