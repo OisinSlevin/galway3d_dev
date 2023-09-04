@@ -1,6 +1,5 @@
-import React, {useRef,useState,Suspense,useEffect}  from "react";
-import {useThree,Canvas, useLoader} from "@react-three/fiber";
-import { Map } from "react-map-gl";
+import React, {useRef,useState,useEffect}  from "react";
+import { useThree, Canvas, useLoader} from "@react-three/fiber";
 import {  MapControls, Html} from "@react-three/drei";
 import * as THREE from "three"
 import {Model} from "./Scene.jsx";
@@ -14,13 +13,13 @@ import LANDUSE from "./sub_components/LANDUSE.jsx"
 
 import {OSM} from "./sub_components/osm.jsx"
 import {Stats}  from "@react-three/drei";
-import img from './galway.png'
+
 
 
 function Image() {
-  const texture = useLoader(THREE.TextureLoader, img)
+  const texture = useLoader(THREE.TextureLoader, "./galway.png")
   return (
-    <mesh rotation={[-Math.PI / 2,0,-2*Math.PI/360]} scale={[1.055 ,1.055,1.055]} position={[-12,-1,24]}  >
+    <mesh rotation={[-Math.PI / 2,0,-2*Math.PI/360]} scale={[1.055 ,1.055,1.055]} position={[-279,-1,-222 ]}  >
       <planeGeometry attach="geometry" args={[16383,9984]} />
       	
       <meshBasicMaterial attach="material" map={texture} />
@@ -28,6 +27,7 @@ function Image() {
     </mesh>
   )
 }
+
 
 function Loader() {
   
@@ -63,6 +63,7 @@ const App = () => {
   const [showDef, setShowDef] = useState(false);
   const [showBackground, setShowBackground] = useState(true);
   const [loading,setLoading]=useState(true)
+  const ref=useRef()
 
   const updateState = (newState) => {
     setLoading(newState);
@@ -148,6 +149,8 @@ useEffect(() => {
   // This effect will run whenever showDef changes
   // We use it to trigger an immediate re-render
 }, [showDef]);
+
+
 
   
 
@@ -265,13 +268,14 @@ useEffect(() => {
           </div>
         )}
         
-          <Canvas dpr={[1, 2]} camera={{ frameloop:"demand", fov: 80,near: 10, far:  10000,position: [0, 500, 0]} }
+          <Canvas dpr={[1, 2]}  camera={{  fov: 80,near: 10, far:  10000,position: [0, 500, 0]} }
               style={{ position: 'absolute', top: 0, left: 0 }} // Set canvas to position absolute
-              gl={{ antialias: true,
-                
-              }}
+              gl={{ antialias: true }}
               
           >   
+ 
+         
+
           {loading && <Loader />}
             <directionalLight intensity={0.5} decay={2} color="#ffffff" position={[-5,5,10]} rotation={[90, 0, 0]} />
             <ambientLight />
@@ -291,6 +295,7 @@ useEffect(() => {
 
               
             <axesHelper args={[500]}/>
+ 
         </Canvas>
        
         <button className={styles.toggleBackground}

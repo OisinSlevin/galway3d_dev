@@ -62,6 +62,7 @@ export default function LANDUSE(props) {
     const [num_chunks, setNumChunks]=useState(props.chunknumber);
     const { camera } = useThree();
     const [camera_pos,setCameraPos]=useState([100000,0,0])
+    const Material_Lookup={}
 
 
   const handlePopupClose = () => {
@@ -178,9 +179,12 @@ export default function LANDUSE(props) {
             const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
             geometry.rotateX(Math.PI / 2);
 
+            if (!(a_feature.properties.LEVEL_2_VALUE in Material_Lookup)){
+                Material_Lookup[a_feature.properties.LEVEL_2_VALUE]=new THREE.MeshStandardMaterial({ color: config[a_feature.properties.LEVEL_2_VALUE]['color'] , side: THREE.DoubleSide, transparent:true, opacity:1 });
+            }
 
-            const material = new THREE.MeshStandardMaterial({ color: config[a_feature.properties.LEVEL_2_VALUE]['color'] , side: THREE.DoubleSide, transparent:true, opacity:1 });
-            const solidMesh = new THREE.Mesh(geometry, material);
+         
+            const solidMesh = new THREE.Mesh(geometry, Material_Lookup[a_feature.properties.LEVEL_2_VALUE]);
 
             // Create wireframe
 
@@ -271,8 +275,11 @@ export default function LANDUSE(props) {
             geometry.rotateX(Math.PI / 2);
 
 
-            const material = new THREE.MeshStandardMaterial({ color: osmconfig["WATER"]['color'] , side: THREE.DoubleSide, transparent:true, opacity:1 });
-            const solidMesh = new THREE.Mesh(geometry, material);
+            
+            if (!('WATER' in Material_Lookup)){
+                Material_Lookup['WATER']=new THREE.MeshStandardMaterial({ color: osmconfig["WATER"]['color'], side: THREE.DoubleSide, transparent:true, opacity:1 });
+            }
+            const solidMesh = new THREE.Mesh(geometry, Material_Lookup['WATER']);
 
             // Create wireframe
 

@@ -73,6 +73,8 @@ export  function OSM( props) {
   const [userData,setUserData]=useState({})
   const HoveredMaterial=new THREE.MeshStandardMaterial({ color: "red", side: THREE.DoubleSide})
   const lookAtVector = new THREE.Vector3();
+  const temp_vector= new THREE.Vector3();
+  const Material_Lookup={}
 
   const handlePopupClose = () => {
     setActivePopup(null);
@@ -90,12 +92,12 @@ export  function OSM( props) {
         setActivePopup(null);
         }
         else{
-    
-        const boundingBox = new THREE.Box3().setFromObject(event.object);
-        const midPosition = new THREE.Vector3();
-        boundingBox.getCenter(midPosition);
 
-        setClickPosition(midPosition.toArray());
+        const boundingBox = event.eventObject.geometry.boundingBox;
+        
+        boundingBox.getCenter(temp_vector);
+
+        setClickPosition(temp_vector.toArray());
         setClickedStates((prevState) => ({ ...prevState, [index]: true }));
         setActivePopup(index);
         }
@@ -218,9 +220,11 @@ export  function OSM( props) {
                     const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
                     geometry.rotateX(Math.PI / 2);
                     geometry.position= [0,Number(config[ob_name]['base']),0]
-            
-                    const material = new THREE.MeshStandardMaterial({ color: config[ob_name]['color'] , side: THREE.DoubleSide, transparent:true, opacity:1 });
-                    const solidMesh = new THREE.Mesh(geometry, material);
+                    if (!(ob_name in Material_Lookup)){
+                        Material_Lookup[ob_name]=new THREE.MeshStandardMaterial({ color: config[ob_name]['color'] , side: THREE.DoubleSide, transparent:true, opacity:1 });
+                    }
+                    
+                    const solidMesh = new THREE.Mesh(geometry, Material_Lookup[ob_name]);
                     const boundingBox = new THREE.Box3().setFromObject(solidMesh);
                     solidMesh.boundingBox = boundingBox;
  

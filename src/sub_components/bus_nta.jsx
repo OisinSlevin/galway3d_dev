@@ -7,33 +7,37 @@ import { MathUtils } from 'three';
 
 
 const Popup = React.memo(({ position, data, onClose }) => {
- 
+  const isDataString = typeof data === 'string';
 
   return (
     <Html position={position}>
-      <div className="popup">
-        <div className="popuptext show">
+    <div className={`popup${isDataString ? ' string-data' : ''}`}>
+      <div className={`popuptext show${isDataString ? ' string-data' : ''}`}>
+        {!isDataString && (
           <button className="close-button" onClick={onClose}>
             x
           </button>
-          {data ? (
-            <table>
-              <tbody>
-                {Object.keys(data).map((key) => (
-                  <tr key={key}>
-                    <td>{key}</td>
-                    <td>{JSON.stringify(data[key])}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            <p>No Data available</p>
-          )}
-        </div>
-        <div className="popup-arrow"></div>
+        )}
+        {isDataString ? (
+          <p className="string-data">{data}</p>
+        ) : data ? (
+          <table>
+            <tbody>
+              {Object.keys(data).map((key) => (
+                <tr key={key}>
+                  <td>{key}</td>
+                  <td>{JSON.stringify(data[key])}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p>No Data available</p>
+        )}
       </div>
-    </Html>
+      <div className="popup-arrow"></div>
+    </div>
+  </Html>
   );
 });
 
@@ -50,11 +54,11 @@ const routes={
   "3573_52079":"401 Eyre Square - Salthill",
   "3573_52080":"402 Seacrest - Eyre Square - Merlin Park",
   "3573_52081":"404 Eyre Square - Newcastle",
-  "3573_52082":"405,Rahoon - Eyre Square - Ballybane",
-  "3573_52083":"407,Eyre Square - Bóthar an Chóiste",
-  "3573_52084":"409,Eyre Square - Parkmore Ind. Est",
-  "3573_52085":"417,Galway - Corofin Cross - Tuam",
-  "3573_52086":"7778020,419,Galway - Clifden",
+  "3573_52082":"405 Rahoon - Eyre Square - Ballybane",
+  "3573_52083":"407 Eyre Square - Bóthar an Chóiste",
+  "3573_52084":"409 Eyre Square - Parkmore Ind. Est",
+  "3573_52085":"417 Galway - Corofin Cross - Tuam",
+  "3573_52086":"419 Galway - Clifden",
 }
 
 
@@ -116,8 +120,10 @@ export default function BusNTA(props) {
             'x':x,
             'y':y,
             'bearing':bearing,
-            'Desc':routes[responseBody2.entity[a_bus]['vehicle']['trip']['route_id']]
+            'Desc':routes[responseBody2.entity[a_bus]['vehicle']['trip']['route_id']],
+            'Route':routes[responseBody2.entity[a_bus]['vehicle']['trip']['route_id']].substring(0,3)
             }
+            console.log(a_new_bus)
             new_bus_data.push(a_new_bus)
     
         }
@@ -229,8 +235,14 @@ export default function BusNTA(props) {
         {clickedStates[index] && activePopup === index &&  <Popup position={[(busData.x/1000), 2/1000, (busData.y/1000)]} // Pass the position of the clicked mesh to the Popup component
                 data={busData}
                 onClose={handlePopupClose} />}
+
+
+        <Popup position={[(busData.x/1000), 2/1000, (busData.y/1000)]} // Pass the position of the clicked mesh to the Popup component
+                data={busData.Route}
+                />
         </group>
-             
+        
+
           
      
       ))}

@@ -186,7 +186,7 @@ export function Model({  updateAppState,chunknumber, searchval,onSearchResult,ca
           };
 
         }
-        sorted_objects[nearestChunk]['nodes'].push(nodes[nodeName]);
+        sorted_objects[nearestChunk]['nodes'].push(nodeName);
       }
     });
     setSortedChunks(sorted_objects)
@@ -276,7 +276,7 @@ export function Model({  updateAppState,chunknumber, searchval,onSearchResult,ca
       const chunkNodes = sorted_chunks[item.chunkName].nodes;
      
       for (const itemx of chunkNodes){
-        nearestChunkObjects[itemx.name]=itemx
+        nearestChunkObjects.push(itemx)
       }
     }
       setNearestObjects(nearestChunkObjects);
@@ -323,7 +323,7 @@ return (
   <group  dispose={null}>
      {Object.keys(nearestObjects).map((nodeName) => {
       
-      const meshGroup = nearestObjects[nodeName];
+      const meshGroup = nodes[nodeName];
         
         if (!meshGroup) return null;
         

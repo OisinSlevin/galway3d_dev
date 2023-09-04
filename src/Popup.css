@@ -34,6 +34,14 @@
     border-color: #555 transparent transparent transparent;
   }
   
+  .popup .popuptext .string-data {
+    background-color: #555;
+    color: #fff;
+    border-radius: 3px;
+    padding: 3px;
+    margin-left: -0px;
+    border-width: 0px;
+  }
 
 
   .popup table {
