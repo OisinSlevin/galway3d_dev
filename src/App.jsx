@@ -268,7 +268,7 @@ useEffect(() => {
           </div>
         )}
         
-          <Canvas dpr={[1, 2]}  camera={{  fov: 80,near: 10, far:  10000,position: [0, 500, 0]} }
+          <Canvas   camera={{  fov: 80,near: 10, far:  10000,position: [0, 500, 0]} }
               style={{ position: 'absolute', top: 0, left: 0 }} // Set canvas to position absolute
               gl={{ antialias: true }}
               
