@@ -321,7 +321,7 @@ const handlePopupClose = () => {
 return (
 
   <group  dispose={null}>
-     {Object.keys(nearestObjects).map((nodeName) => {
+     {nearestObjects.map((nodeName) => {
       
       const meshGroup = nodes[nodeName];
         

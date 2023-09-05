@@ -1,7 +1,6 @@
 import React, {useRef,useState,useEffect}  from "react";
-import { useThree, Canvas, useLoader} from "@react-three/fiber";
+import { Canvas} from "@react-three/fiber";
 import {  MapControls, Html} from "@react-three/drei";
-import * as THREE from "three"
 import {Model} from "./Scene.jsx";
 import Cube from "./Cube.jsx";
 import styles from './App.module.css';
@@ -13,20 +12,9 @@ import LANDUSE from "./sub_components/LANDUSE.jsx"
 
 import {OSM} from "./sub_components/osm.jsx"
 import {Stats}  from "@react-three/drei";
+import {Image} from "./sub_components/BaseMap.jsx"
 
 
-
-function Image() {
-  const texture = useLoader(THREE.TextureLoader, "./galway.png")
-  return (
-    <mesh rotation={[-Math.PI / 2,0,-2*Math.PI/360]} scale={[1.055 ,1.055,1.055]} position={[-279,-1,-222 ]}  >
-      <planeGeometry attach="geometry" args={[16383,9984]} />
-      	
-      <meshBasicMaterial attach="material" map={texture} />
-      
-    </mesh>
-  )
-}
 
 
 function Loader() {
@@ -276,7 +264,7 @@ useEffect(() => {
  
          
 
-          {loading && <Loader />}
+          {loading && <Loader/>}
             <directionalLight intensity={0.5} decay={2} color="#ffffff" position={[-5,5,10]} rotation={[90, 0, 0]} />
             <ambientLight />
             <MapControls minPolarAngle={0} maxPolarAngle={1} maxDistance={5000}  minDistance={1} /> 
