@@ -1,4 +1,4 @@
-import React, {useRef,useState,useEffect}  from "react";
+import React, {useRef,useState,useEffect,Suspense}  from "react";
 import { Canvas} from "@react-three/fiber";
 import {  MapControls, Html} from "@react-three/drei";
 import {Model} from "./Scene.jsx";
@@ -13,8 +13,16 @@ import LANDUSE from "./sub_components/LANDUSE.jsx"
 import {OSM} from "./sub_components/osm.jsx"
 import {Stats}  from "@react-three/drei";
 import {Image} from "./sub_components/BaseMap.jsx"
+//import Deck from "./sub_components/deck.jsx"
+import  DeckGLCanvas  from '@deck.gl/react';
+import DeckGL from '@deck.gl/react';
+import {LineLayer} from '@deck.gl/layers';
+import {Map} from 'react-map-gl';
 
+import StaticMap from "react-map-gl";
+import maplibregl from "maplibre-gl";
 
+import "mapbox-gl/dist/mapbox-gl.css";
 
 
 function Loader() {
@@ -27,6 +35,20 @@ function Loader() {
     </>
   );
 }
+
+const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1Ijoib2pzbGV2aW4iLCJhIjoiY2xtNjc1ZW05MGQ5YzNubXRmNjhqMW9kciJ9.i32HJTpCONlRVm603HOuJw';
+
+// Viewport settings
+const INITIAL_VIEW_STATE = {
+  longitude: -9.037171785811253,
+  latitude: 53.28159618564831,
+  zoom: 16,
+  pitch: 0,
+  bearing: 0
+};
+
+// Data to be used by the LineLayer
+
 
 const App = () => {
  
@@ -50,8 +72,12 @@ const App = () => {
   const [showOSM, setShowOSM] = useState(true);
   const [showDef, setShowDef] = useState(false);
   const [showBackground, setShowBackground] = useState(true);
+  const [showBasemapImage, setShowBasemap] = useState(true);
+  
   const [loading,setLoading]=useState(true)
   const ref=useRef()
+
+
 
   const updateState = (newState) => {
     setLoading(newState);
@@ -105,6 +131,11 @@ const App = () => {
   const toggleSparch = () => {
     setShowSparch(!showSparch);
   };
+
+  const toggleBasemapImage = () => {
+    setShowBasemap(!showBasemapImage);
+  };
+  
   const toggleBus = () => {
     setShowBus(!showBus);
   };
@@ -252,19 +283,31 @@ useEffect(() => {
                   />
                   <span>OSM</span>
                 </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    checked={showBasemapImage}
+                    onChange={toggleBasemapImage}
+                  />
+                  <span>basemap</span>
+                </div>
               </div>
           </div>
         )}
         
+          
+        
+
           <Canvas   camera={{  fov: 80,near: 10, far:  10000,position: [0, 500, 0]} }
               style={{ position: 'absolute', top: 0, left: 0 }} // Set canvas to position absolute
               gl={{ antialias: true }}
               
           >   
- 
+          
          
 
           {loading && <Loader/>}
+          <Suspense fallback={<Loader />}>
             <directionalLight intensity={0.5} decay={2} color="#ffffff" position={[-5,5,10]} rotation={[90, 0, 0]} />
             <ambientLight />
             <MapControls minPolarAngle={0} maxPolarAngle={1} maxDistance={5000}  minDistance={1} /> 
@@ -279,12 +322,15 @@ useEffect(() => {
             { showLANDUSE && <LANDUSE updateAppState={updateState}  cameraRef={cameraRef}  chunknumber={chunknumber} />}
             { showED && <ED/>}
             <Stats/>
-            <Image />
 
-              
+            { showBasemapImage && <Image />}
+          </Suspense>
+            
+                        
             <axesHelper args={[500]}/>
  
         </Canvas>
+        
        
         <button className={styles.toggleBackground}
           type="button"
